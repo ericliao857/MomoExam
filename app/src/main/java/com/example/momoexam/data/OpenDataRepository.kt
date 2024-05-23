@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 interface OpenDataRepository {
     fun getAreaIntroduction(): Flow<List<AreaIntroduction>>
 
-    suspend fun getAnimalInfo(): Flow<List<AnimalInfo>>
+    fun getAnimalInfo(): Flow<List<AnimalInfo>>
 }

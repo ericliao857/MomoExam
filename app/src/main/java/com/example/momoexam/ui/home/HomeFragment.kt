@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -54,7 +55,7 @@ class HomeFragment : Fragment() {
     }
 
     /**
-     * 設定場館介紹列表
+     * 設定館區簡介列表
      */
     private fun setAreaIntroductionItem(items: List<AreaIntroduction>) {
         binding.rvAreaIntroduction.layoutManager = LinearLayoutManager(requireContext())
@@ -62,7 +63,15 @@ class HomeFragment : Fragment() {
             DividerItemDecoration(requireContext(), VERTICAL)
         )
         binding.rvAreaIntroduction.adapter = IntroductionAdapter(items = items) {
-            // TODO: go to detail page
+            goToDetail(areaIntroduction = it)
         }
+    }
+
+    /**
+     * 前往館區介紹頁面
+     */
+    private fun goToDetail(areaIntroduction: AreaIntroduction) {
+        val directions = HomeFragmentDirections.actionNavHomeToDetail(areaIntroduction)
+        findNavController().navigate(directions)
     }
 }

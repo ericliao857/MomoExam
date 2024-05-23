@@ -9,5 +9,5 @@ interface NetworkDataSource {
 
     fun loadAreaIntroduction(): Flow<ApiBean<AreaIntroduction>>
 
-    suspend fun loadAnimalInfo(): Flow<ApiBean<AnimalInfo>>
+    fun loadAnimalInfo(): Flow<ApiBean<AnimalInfo>>
 }

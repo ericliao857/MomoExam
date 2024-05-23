@@ -6,9 +6,15 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="no_closing_information">無休館資訊</string>
+    <string name="open_web_url">在網頁開啟</string>
+    <string name="animal_info">動物資訊</string>
 
     <string name="menu_home">Home</string>
-
+    <string name="load_area_error">讀取館區簡介出錯</string>
+    <string name="not_find_area">沒有館區簡介資料</string>
+    <string name="load_animal_error">讀取動物資訊出錯</string>
     <!-- contentDescription -->
     <string name="image_arrow_go_content_description">Go</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

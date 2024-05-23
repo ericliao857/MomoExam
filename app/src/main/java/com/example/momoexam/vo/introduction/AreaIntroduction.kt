@@ -1,12 +1,15 @@
 package com.example.momoexam.vo.introduction
 
 
-import com.example.momoexam.vo.Importdate
+import android.os.Parcelable
+import com.example.momoexam.vo.ImportDate
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 /**
  * 館區介紹
  */
+@Parcelize
 data class AreaIntroduction(
     @SerializedName("e_category")
     val eCategory: String,
@@ -27,5 +30,5 @@ data class AreaIntroduction(
     @SerializedName("_id")
     val id: Int,
     @SerializedName("_importdate")
-    val importdate: Importdate
-)
+    val importDate: ImportDate
+): Parcelable

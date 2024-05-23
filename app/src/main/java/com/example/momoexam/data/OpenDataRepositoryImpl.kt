@@ -29,14 +29,20 @@ class OpenDataRepositoryImpl @Inject constructor(
                         }
                     }
             }
-            .catch { it.printStackTrace() }
             .flowOn(dispatcher)
     }
 
-    override suspend fun getAnimalInfo(): Flow<List<AnimalInfo>> {
+    override fun getAnimalInfo(): Flow<List<AnimalInfo>> {
         return networkDataSource.loadAnimalInfo()
-            .map { it.resultBean.results }
-            .catch { it.printStackTrace() }
+            .map {
+                // 照片連結Http的掛了，在這裡全部替換成Https
+                it.resultBean.results
+                    .map { animal ->
+                        animal.apply {
+                            aPic01Url = aPic01Url.replace("http://", "https://")
+                        }
+                    }
+            }
             .flowOn(dispatcher)
     }
 }

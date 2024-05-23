@@ -1,7 +1,7 @@
 package com.example.momoexam.vo.animal
 
 
-import com.example.momoexam.vo.Importdate
+import com.example.momoexam.vo.ImportDate
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -63,7 +63,7 @@ data class AnimalInfo(
     @SerializedName("a_pic01_alt")
     val aPic01Alt: String,
     @SerializedName("a_pic01_url")
-    val aPic01Url: String,
+    var aPic01Url: String,
     @SerializedName("a_pic02_alt")
     val aPic02Alt: String,
     @SerializedName("a_pic02_url")
@@ -103,5 +103,5 @@ data class AnimalInfo(
     @SerializedName("_id")
     val id: Int,
     @SerializedName("_importdate")
-    val importdate: Importdate
+    val importdate: ImportDate
 )

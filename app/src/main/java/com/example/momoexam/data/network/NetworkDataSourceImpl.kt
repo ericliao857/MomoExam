@@ -21,7 +21,7 @@ class NetworkDataSourceImpl @Inject constructor(
     }.flowOn(ioDispatcher)
 
 
-    override suspend fun loadAnimalInfo(): Flow<ApiBean<AnimalInfo>> = flow {
+    override fun loadAnimalInfo(): Flow<ApiBean<AnimalInfo>> = flow {
         emit(apiService.getAnimalInfo())
     }.flowOn(ioDispatcher)
 

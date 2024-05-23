@@ -1,4 +1,9 @@
 package com.example.momoexam
 
-class MomoTestApplication {
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class MomoTestApplication: Application() {
+
 }

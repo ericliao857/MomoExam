@@ -15,13 +15,13 @@ data class AreaIntroduction(
     @SerializedName("e_info")
     val eInfo: String,
     @SerializedName("e_memo")
-    val eMemo: String,
+    val eMemo: String? = null,
     @SerializedName("e_name")
     val eName: String,
     @SerializedName("e_no")
     val eNo: String,
     @SerializedName("e_pic_url")
-    val ePicUrl: String,
+    var ePicUrl: String,
     @SerializedName("e_url")
     val eUrl: String,
     @SerializedName("_id")

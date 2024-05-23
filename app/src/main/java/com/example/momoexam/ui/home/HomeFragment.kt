@@ -4,12 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration
+import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import com.example.momoexam.databinding.FragmentHomeBinding
+import com.example.momoexam.vo.introduction.AreaIntroduction
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -29,10 +35,34 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observe()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun observe() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.uiState
+                .flowWithLifecycle(viewLifecycleOwner.lifecycle)
+                .collect {
+                    setAreaIntroductionItem(it.items)
+                }
+        }
+    }
+
+    /**
+     * 設定場館介紹列表
+     */
+    private fun setAreaIntroductionItem(items: List<AreaIntroduction>) {
+        binding.rvAreaIntroduction.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvAreaIntroduction.addItemDecoration(
+            DividerItemDecoration(requireContext(), VERTICAL)
+        )
+        binding.rvAreaIntroduction.adapter = IntroductionAdapter(items = items) {
+            // TODO: go to detail page
+        }
     }
 }

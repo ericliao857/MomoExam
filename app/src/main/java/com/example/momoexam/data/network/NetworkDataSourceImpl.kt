@@ -16,7 +16,7 @@ class NetworkDataSourceImpl @Inject constructor(
     private val apiService: ApiService,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ): NetworkDataSource {
-    override suspend fun loadAreaIntroduction(): Flow<ApiBean<AreaIntroduction>> = flow {
+    override fun loadAreaIntroduction(): Flow<ApiBean<AreaIntroduction>> = flow {
         emit(apiService.getAreaIntroduction())
     }.flowOn(ioDispatcher)
 

@@ -5,7 +5,7 @@ import com.example.momoexam.vo.introduction.AreaIntroduction
 import kotlinx.coroutines.flow.Flow
 
 interface OpenDataRepository {
-    suspend fun getAreaIntroduction(): Flow<List<AreaIntroduction>>
+    fun getAreaIntroduction(): Flow<List<AreaIntroduction>>
 
     suspend fun getAnimalInfo(): Flow<List<AnimalInfo>>
 }

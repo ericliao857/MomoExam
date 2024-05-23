@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface NetworkDataSource {
 
-    suspend fun loadAreaIntroduction(): Flow<ApiBean<AreaIntroduction>>
+    fun loadAreaIntroduction(): Flow<ApiBean<AreaIntroduction>>
 
     suspend fun loadAnimalInfo(): Flow<ApiBean<AnimalInfo>>
 }

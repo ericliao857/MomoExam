@@ -5,6 +5,10 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
+    <string name="no_closing_information">無休館資訊</string>
 
     <string name="menu_home">Home</string>
+
+    <!-- contentDescription -->
+    <string name="image_arrow_go_content_description">Go</string>
 </resources>

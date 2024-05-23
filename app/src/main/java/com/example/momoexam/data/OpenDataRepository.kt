@@ -1,0 +1,11 @@
+package com.example.momoexam.data
+
+import com.example.momoexam.vo.animal.AnimalInfo
+import com.example.momoexam.vo.introduction.AreaIntroduction
+import kotlinx.coroutines.flow.Flow
+
+interface OpenDataRepository {
+    suspend fun getAreaIntroduction(): Flow<List<AreaIntroduction>>
+
+    suspend fun getAnimalInfo(): Flow<List<AnimalInfo>>
+}

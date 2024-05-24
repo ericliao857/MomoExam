@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
@@ -49,9 +50,15 @@ class HomeFragment : Fragment() {
             viewModel.uiState
                 .flowWithLifecycle(viewLifecycleOwner.lifecycle)
                 .collect {
+                    showLoading(it.isLoading)
                     setAreaIntroductionItem(it.items)
                 }
         }
+    }
+
+    private fun showLoading(isShow: Boolean) {
+        binding.clLoading.isVisible = isShow
+        binding.rvAreaIntroduction.isVisible = !isShow
     }
 
     /**

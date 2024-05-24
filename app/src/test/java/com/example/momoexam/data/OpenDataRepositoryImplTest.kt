@@ -5,10 +5,13 @@ import com.example.momoexam.utils.TestUtils.createApiBeanWithAnimalInfo
 import com.example.momoexam.utils.TestUtils.createApiBeanWithAreaIntroductions
 import com.example.momoexam.utils.TestUtils.testAnimalInfo
 import com.example.momoexam.utils.TestUtils.testAreaIntroduction
+import com.example.momoexam.vo.animal.AnimalInfo
+import com.example.momoexam.vo.introduction.AreaIntroduction
 import dagger.hilt.android.testing.HiltAndroidTest
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.TestScope
@@ -56,7 +59,20 @@ class OpenDataRepositoryImplTest {
         // 驗證結果
         assertEquals(mockAreaIntroduction, result)
     }
+    @Test
+    fun testGetAreaIntroduction_Error() = testScope.runTest {
+        coEvery {
+            networkDataSource.loadAreaIntroduction()
+        } returns flow {
+            throw RuntimeException("Network error")
+        }
 
+        val result = repository.getAreaIntroduction()
+            .catch { emit(emptyList()) }
+            .first()
+
+        assertEquals(emptyList<AreaIntroduction>(), result)
+    }
 
     @Test
     fun testGetAnimalInfo() = testScope.runTest {
@@ -75,5 +91,20 @@ class OpenDataRepositoryImplTest {
 
         // 驗證資料
         assertEquals(mockAnimalInfo, result)
+    }
+
+    @Test
+    fun testGetAnimalInfo_Error() = testScope.runTest {
+        coEvery {
+            networkDataSource.loadAnimalInfo()
+        } returns flow {
+            throw RuntimeException("Network error")
+        }
+
+        val result = repository.getAnimalInfo()
+            .catch { emit(emptyList()) }
+            .first()
+
+        assertEquals(emptyList<AnimalInfo>(), result)
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -52,6 +53,9 @@ class HomeFragment : Fragment() {
                 .collect {
                     showLoading(it.isLoading)
                     setAreaIntroductionItem(it.items)
+                    it.message?.let { resId ->
+                        showToast(getString(resId))
+                    }
                 }
         }
     }
@@ -83,5 +87,9 @@ class HomeFragment : Fragment() {
             title = areaIntroduction.eName
         )
         findNavController().navigate(directions)
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 }

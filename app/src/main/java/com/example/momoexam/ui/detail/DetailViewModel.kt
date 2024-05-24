@@ -22,7 +22,8 @@ import javax.inject.Inject
 data class DetailUiState(
     val isLoading: Boolean = false,
     val area: AreaIntroduction? = null,
-    val animals: List<AnimalInfo> = emptyList()
+    val animals: List<AnimalInfo> = emptyList(),
+    val message: Int? = null
 )
 
 @HiltViewModel
@@ -37,25 +38,42 @@ class DetailViewModel @Inject constructor(
     ) { animals, area ->
         filterAnimal(animals, area)
     }.catch { e ->
-        e.printStackTrace()
+        Result.Error(R.string.animal_info)
     }
 
     val uiState: StateFlow<DetailUiState> = combine(
         _savedArea, _filteredAnimal
     ) { area, animal ->
-        DetailUiState(
-            isLoading = false,
-            area = area,
-            animals = animal
-        )
+        when(animal) {
+            Result.Loading -> {
+                DetailUiState(isLoading = true)
+            }
+            is Result.Error -> {
+                DetailUiState(
+                    isLoading = false,
+                    area = area,
+                    message = animal.errorMessage
+                )
+            }
+            is Result.Success -> {
+                DetailUiState(
+                    isLoading = false,
+                    area = area,
+                    animals = animal.data
+                )
+            }
+        }
     }.stateIn(
         scope = viewModelScope,
         started = WhileUiSubscribed,
         initialValue = DetailUiState(isLoading = true)
     )
 
-    private fun filterAnimal(animals: List<AnimalInfo>, area: AreaIntroduction?): List<AnimalInfo> {
-        return animals.filter { it.aLocation == area?.eName }
+    private fun filterAnimal(animals: List<AnimalInfo>, area: AreaIntroduction?): Result<List<AnimalInfo>> {
+        if (area == null) {
+            return Result.Error(R.string.not_find_area)
+        }
+        return Result.Success(animals.filter { it.aLocation == area.eName })
     }
 
 }

@@ -5,7 +5,7 @@ import com.example.momoexam.data.api.ApiService
 import com.example.momoexam.utils.TestUtils.createApiBeanWithAnimalInfo
 import com.example.momoexam.utils.TestUtils.createApiBeanWithAreaIntroductions
 import com.example.momoexam.utils.TestUtils.testAnimalInfo
-import com.example.momoexam.utils.TestUtils.testAreaIntroduction
+import com.example.momoexam.utils.TestUtils.testAreaIntroduction1
 import dagger.hilt.android.testing.HiltAndroidTest
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -41,7 +41,7 @@ class NetworkDataSourceImplTest {
     fun testLoadAreaIntroduction_return_expected_data() = testScope.runTest {
         // 準備測試資料
         val expectedData = createApiBeanWithAreaIntroductions(
-            listOfNotNull(testAreaIntroduction)
+            listOfNotNull(testAreaIntroduction1)
         )
 
         // MockK行為

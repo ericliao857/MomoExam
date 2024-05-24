@@ -56,11 +56,11 @@ class FakeOpenDataRepository : OpenDataRepository {
     }
 
     @VisibleForTesting
-    fun addAnimalInfos(vararg newAnimal: AnimalInfo) {
+    fun addAnimalInfos(vararg newAnimals: AnimalInfo) {
         _savedAnimalInfos.update { oldAnimals ->
             buildList {
                 addAll(oldAnimals)
-                addAll(newAnimal)
+                addAll(newAnimals)
             }
         }
     }

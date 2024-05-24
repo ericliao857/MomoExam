@@ -5,6 +5,7 @@ import com.example.momoexam.utils.TestUtils.createApiBeanWithAnimalInfo
 import com.example.momoexam.utils.TestUtils.createApiBeanWithAreaIntroductions
 import com.example.momoexam.utils.TestUtils.testAnimalInfo
 import com.example.momoexam.utils.TestUtils.testAreaIntroduction1
+import com.example.momoexam.utils.TestUtils.testAreaIntroduction2
 import com.example.momoexam.vo.animal.AnimalInfo
 import com.example.momoexam.vo.introduction.AreaIntroduction
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -44,7 +45,7 @@ class OpenDataRepositoryImplTest {
         // 模擬數據
         val mockAreaIntroduction = listOf(
             testAreaIntroduction1,
-            testAreaIntroduction1
+            testAreaIntroduction2
         )
 
         // 模擬 networkDataSource

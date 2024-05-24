@@ -4,8 +4,8 @@ import androidx.lifecycle.SavedStateHandle
 import com.example.momoexam.R
 import com.example.momoexam.utils.FakeOpenDataRepository
 import com.example.momoexam.utils.MainCoroutineRule
-import com.example.momoexam.utils.TestUtils.testAreaIntroduction1
 import com.example.momoexam.utils.TestUtils.testAreaIntroduction2
+import com.example.momoexam.utils.TestUtils.testAreaIntroduction1
 import com.example.momoexam.vo.introduction.AreaIntroduction
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi

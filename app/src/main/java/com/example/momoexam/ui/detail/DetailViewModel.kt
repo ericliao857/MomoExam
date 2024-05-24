@@ -38,7 +38,7 @@ class DetailViewModel @Inject constructor(
     ) { animals, area ->
         filterAnimal(animals, area)
     }.catch { e ->
-        Result.Error(R.string.animal_info)
+        emit(Result.Error(R.string.load_animal_error))
     }
 
     val uiState: StateFlow<DetailUiState> = combine(

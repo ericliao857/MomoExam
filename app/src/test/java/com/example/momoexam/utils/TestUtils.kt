@@ -1,10 +1,40 @@
 package com.example.momoexam.utils
 
+import com.example.momoexam.vo.ApiBean
 import com.example.momoexam.vo.ImportDate
+import com.example.momoexam.vo.ResultBean
 import com.example.momoexam.vo.animal.AnimalInfo
 import com.example.momoexam.vo.introduction.AreaIntroduction
 
 object TestUtils {
+
+    fun createApiBeanWithAreaIntroductions(
+        areaIntroductions: List<AreaIntroduction> = emptyList()
+    ): ApiBean<AreaIntroduction> {
+        return ApiBean(
+            resultBean = ResultBean(
+                count = 16,
+                limit = 20,
+                offset = 0,
+                results = areaIntroductions,
+                sort = ""
+            )
+        )
+    }
+
+    fun createApiBeanWithAnimalInfo(
+        testAnimalInfos: List<AnimalInfo> = emptyList()
+    ): ApiBean<AnimalInfo> {
+        return ApiBean(
+            resultBean = ResultBean(
+                count = 272,
+                limit = 20,
+                offset = 0,
+                results = testAnimalInfos,
+                sort = ""
+            )
+        )
+    }
 
     // 館區介紹測試資料
     val testAreaIntroduction = AreaIntroduction(

@@ -2,15 +2,16 @@ package com.example.momoexam.data.network
 
 
 import com.example.momoexam.data.api.ApiService
+import com.example.momoexam.utils.TestUtils.createApiBeanWithAnimalInfo
+import com.example.momoexam.utils.TestUtils.createApiBeanWithAreaIntroductions
 import com.example.momoexam.utils.TestUtils.testAnimalInfo
 import com.example.momoexam.utils.TestUtils.testAreaIntroduction
-import com.example.momoexam.vo.ApiBean
-import com.example.momoexam.vo.ResultBean
 import dagger.hilt.android.testing.HiltAndroidTest
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.*
@@ -25,6 +26,7 @@ import org.mockito.junit.MockitoJUnitRunner
 class NetworkDataSourceImplTest {
     // 使用 testDispatcher 控制協程
     private val testDispatcher = UnconfinedTestDispatcher()
+    private var testScope = TestScope(testDispatcher)
 
     // Mock ApiService
     private val apiService = mockk<ApiService>()
@@ -36,16 +38,10 @@ class NetworkDataSourceImplTest {
     }
 
     @Test
-    fun testLoadAreaIntroduction_return_expected_data() = runTest {
+    fun testLoadAreaIntroduction_return_expected_data() = testScope.runTest {
         // 準備測試資料
-        val expectedData = ApiBean(
-            resultBean = ResultBean(
-                count = 16,
-                limit = 20,
-                offset = 0,
-                results = listOfNotNull(testAreaIntroduction),
-                sort = ""
-            )
+        val expectedData = createApiBeanWithAreaIntroductions(
+            listOfNotNull(testAreaIntroduction)
         )
 
         // MockK行為
@@ -60,16 +56,10 @@ class NetworkDataSourceImplTest {
     }
 
     @Test
-    fun testLoadAnimalInfo_return_expected_data() = runTest {
+    fun testLoadAnimalInfo_return_expected_data() = testScope.runTest {
         // 準備測試資料
-        val expectedData = ApiBean(
-            resultBean = ResultBean(
-                count = 272,
-                limit = 20,
-                offset = 0,
-                results = listOfNotNull(testAnimalInfo),
-                sort = ""
-            )
+        val expectedData = createApiBeanWithAnimalInfo(
+            listOfNotNull(testAnimalInfo)
         )
 
         // MockK

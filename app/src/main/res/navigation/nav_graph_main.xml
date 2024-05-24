@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.momoexam.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="@string/taipei_zoo"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_nav_home_to_detail"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/nav_detail"
         android:name="com.example.momoexam.ui.detail.DetailFragment"
-        android:label="fragment_detail"
+        android:label="@string/area_info"
         tools:layout="@layout/fragment_detail">
 
         <argument
@@ -26,14 +26,24 @@
         <action
             android:id="@+id/action_nav_detail_to_nav_animal_detail"
             app:destination="@id/nav_animal_detail" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
     </fragment>
     <fragment
         android:id="@+id/nav_animal_detail"
         android:name="com.example.momoexam.ui.animal.AnimalDetailFragment"
-        android:label="AnimalDetailFragment">
+        android:label="@string/animal_info">
 
         <argument
             android:name="animal"
             app:argType="com.example.momoexam.vo.animal.AnimalInfo" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
     </fragment>
 </navigation>

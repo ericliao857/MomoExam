@@ -33,6 +33,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.example.momoexam.R
+import com.example.momoexam.ui.MainViewModel
 import com.example.momoexam.utils.DateUtils
 import com.example.momoexam.utils.Utils.mergeStringsWithSeparator
 import com.example.momoexam.vo.animal.AnimalInfo

@@ -8,6 +8,8 @@
     <string name="menu_home">Home</string>
     <string name="no_closing_information">無休館資訊</string>
     <string name="open_web_url">在網頁開啟</string>
+    <string name="taipei_zoo">臺北市立動物園</string>
+    <string name="area_info">館區介紹</string>
     <string name="animal_info">動物資訊</string>
     <!-- 動物介紹 -->
     <string name="alias">別名</string>

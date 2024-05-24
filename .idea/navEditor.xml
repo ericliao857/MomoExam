@@ -54,12 +54,12 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="animalDetailFragment">
+                  <entry key="nav_animal_detail">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="500" />
+                            <option name="x" value="12" />
                             <option name="y" value="12" />
                           </Point>
                         </option>
@@ -77,7 +77,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_nav_detail_to_animalDetailFragment">
+                            <entry key="action_nav_detail_to_nav_animal_detail">
                               <value>
                                 <LayoutPositions />
                               </value>

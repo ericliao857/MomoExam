@@ -36,6 +36,8 @@ class DetailViewModel @Inject constructor(
         repository.getAnimalInfo(), _savedArea
     ) { animals, area ->
         filterAnimal(animals, area)
+    }.catch { e ->
+        e.printStackTrace()
     }
 
     val uiState: StateFlow<DetailUiState> = combine(

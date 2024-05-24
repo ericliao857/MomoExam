@@ -71,7 +71,10 @@ class HomeFragment : Fragment() {
      * 前往館區介紹頁面
      */
     private fun goToDetail(areaIntroduction: AreaIntroduction) {
-        val directions = HomeFragmentDirections.actionNavHomeToDetail(areaIntroduction)
+        val directions = HomeFragmentDirections.actionNavHomeToDetail(
+            area = areaIntroduction,
+            title = areaIntroduction.eName
+        )
         findNavController().navigate(directions)
     }
 }

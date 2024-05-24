@@ -25,6 +25,7 @@ import kotlinx.coroutines.launch
 
 
 const val ARG_AREA = "area" // 場館資料
+
 /**
  * 館區詳細介紹
  */
@@ -98,7 +99,10 @@ class DetailFragment : Fragment() {
     }
 
     private fun goToAnimalDetail(animalInfo: AnimalInfo) {
-        val direction = DetailFragmentDirections.actionNavDetailToNavAnimalDetail(animal = animalInfo)
+        val direction = DetailFragmentDirections.actionNavDetailToNavAnimalDetail(
+            animal = animalInfo,
+            title = animalInfo.aNameCh
+        )
         findNavController().navigate(direction)
     }
 }

@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -84,7 +85,7 @@ class DetailFragment : Fragment() {
         )
         binding.rvAreaIntroduction.layoutManager = LinearLayoutManager(requireContext())
         binding.rvAreaIntroduction.adapter = AnimalAdapter(items = animals) {
-
+            goToAnimalDetail(it)
         }
     }
 
@@ -94,5 +95,10 @@ class DetailFragment : Fragment() {
     private fun openWebUrl(url: String) {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         startActivity(intent)
+    }
+
+    private fun goToAnimalDetail(animalInfo: AnimalInfo) {
+        val direction = DetailFragmentDirections.actionNavDetailToNavAnimalDetail(animal = animalInfo)
+        findNavController().navigate(direction)
     }
 }

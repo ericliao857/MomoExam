@@ -5,16 +5,23 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
+    <string name="menu_home">Home</string>
     <string name="no_closing_information">無休館資訊</string>
     <string name="open_web_url">在網頁開啟</string>
     <string name="animal_info">動物資訊</string>
+    <!-- 動物介紹 -->
+    <string name="alias">別名</string>
+    <string name="introduction">簡介</string>
+    <string name="feature">辨認方式</string>
+    <string name="behavior">功能性</string>
+    <string name="update_date">最後更新: %s</string>
 
-    <string name="menu_home">Home</string>
+    <string name="separate">、</string>
+    <!-- Error Msg -->
     <string name="load_area_error">讀取館區簡介出錯</string>
     <string name="not_find_area">沒有館區簡介資料</string>
     <string name="load_animal_error">讀取動物資訊出錯</string>
     <!-- contentDescription -->
     <string name="image_arrow_go_content_description">Go</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image_animal_content_description">動物照片</string>
 </resources>

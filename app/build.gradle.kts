@@ -39,6 +39,11 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.2"
     }
 }
 
@@ -58,6 +63,7 @@ dependencies {
     // Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
     // OkHttp
     implementation(platform(libs.okhttp.bom))
     implementation(libs.okhttp)
@@ -69,6 +75,20 @@ dependencies {
     implementation(libs.gson)
     // Glide
     implementation(libs.glide)
+    implementation(libs.glide.compose)
+    // Compose
+    implementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    implementation(libs.compose.material3)
+    implementation(libs.compose.material)
+    // or skip Material Design and build directly on top of foundational components
+    implementation(libs.compose.foundation)
+    implementation(libs.compose.ui.tooling.preview)
+    debugImplementation(libs.compose.ui.tooling)
+
+    // Optional - Integration with ViewModels
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
 }
 
 // Allow references to generated code

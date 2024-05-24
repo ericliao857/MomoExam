@@ -23,5 +23,17 @@
         <argument
             android:name="area"
             app:argType="com.example.momoexam.vo.introduction.AreaIntroduction" />
+        <action
+            android:id="@+id/action_nav_detail_to_nav_animal_detail"
+            app:destination="@id/nav_animal_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_animal_detail"
+        android:name="com.example.momoexam.ui.animal.AnimalDetailFragment"
+        android:label="AnimalDetailFragment">
+
+        <argument
+            android:name="animal"
+            app:argType="com.example.momoexam.vo.animal.AnimalInfo" />
     </fragment>
 </navigation>

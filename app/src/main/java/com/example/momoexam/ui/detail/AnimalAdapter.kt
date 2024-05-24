@@ -1,13 +1,12 @@
 package com.example.momoexam.ui.detail
 
-import android.R
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
+import com.example.momoexam.R
 import com.example.momoexam.databinding.ItemAnimalBinding
+import com.example.momoexam.utils.Utils
 import com.example.momoexam.vo.animal.AnimalInfo
 
 
@@ -20,9 +19,13 @@ class AnimalAdapter(
             Glide.with(itemView)
                 .load(animalInfo.aPic01Url)
                 .into(binding.ivPic)
-            Log.d("TAG", "bind: ${animalInfo.aPic01Url}")
             binding.tvName.text = animalInfo.aNameCh
-            binding.tvInfo.text = animalInfo.aAlsoknown
+            val separate = itemView.context.getString(R.string.separate)
+            binding.tvInfo.text = Utils.mergeStringsWithSeparator(
+                baseString = animalInfo.aAlsoknown,
+                appendString = animalInfo.aKeywords,
+                separator = separate
+            )
             itemView.setOnClickListener { onItemClick(animalInfo) }
         }
     }

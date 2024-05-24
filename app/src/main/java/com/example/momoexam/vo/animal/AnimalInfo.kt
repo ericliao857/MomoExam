@@ -1,12 +1,15 @@
 package com.example.momoexam.vo.animal
 
 
+import android.os.Parcelable
 import com.example.momoexam.vo.ImportDate
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 /**
  * 動物資訊
  */
+@Parcelize
 data class AnimalInfo(
     @SerializedName("a_adopt")
     val aAdopt: String,
@@ -104,4 +107,4 @@ data class AnimalInfo(
     val id: Int,
     @SerializedName("_importdate")
     val importdate: ImportDate
-)
+): Parcelable

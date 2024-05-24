@@ -138,9 +138,9 @@ fun AnimalPic(
     picUrl: String
 ) {
     Box(
-        // 寬高比 16:9
+        // 寬高比 4:3
         modifier = modifier
-            .aspectRatio(16f / 9f)
+            .aspectRatio(4f / 3f)
             .fillMaxWidth()
     ) {
         GlideImage(

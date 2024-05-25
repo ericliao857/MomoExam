@@ -7,7 +7,6 @@ import com.example.momoexam.utils.MainCoroutineRule
 import com.example.momoexam.utils.TestUtils.testAreaIntroduction2
 import com.example.momoexam.utils.TestUtils.testAreaIntroduction1
 import com.example.momoexam.vo.introduction.AreaIntroduction
-import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
@@ -15,11 +14,7 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.junit.MockitoJUnitRunner
 
-@HiltAndroidTest
-@RunWith(MockitoJUnitRunner::class)
 @ExperimentalCoroutinesApi
 class HomeViewModelTest {
 

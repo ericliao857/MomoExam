@@ -6,7 +6,6 @@ import com.example.momoexam.utils.TestUtils.createApiBeanWithAnimalInfo
 import com.example.momoexam.utils.TestUtils.createApiBeanWithAreaIntroductions
 import com.example.momoexam.utils.TestUtils.testAnimalInfo
 import com.example.momoexam.utils.TestUtils.testAreaIntroduction1
-import dagger.hilt.android.testing.HiltAndroidTest
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -17,11 +16,7 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.junit.MockitoJUnitRunner
 
-@HiltAndroidTest
-@RunWith(MockitoJUnitRunner::class)
 @ExperimentalCoroutinesApi
 class NetworkDataSourceImplTest {
     // 使用 testDispatcher 控制協程
